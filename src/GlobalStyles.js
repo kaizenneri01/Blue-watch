@@ -9,6 +9,28 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
+export const LogoText = styled.h1`
+  font-weight: ${({ fweight }) => (fweight ? fweight : "")};
+  font-size: ${({ fsize }) => (fsize ? fsize : "")};
+  line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "")};
+  color: #ffffff;
+  text-transform: uppercase;
+  @media screen and (min-width: 1100px) {
+    font-size: ${({ size }) => size && size};
+    line-height: ${({ medialineHeight }) =>
+      medialineHeight ? medialineHeight : ""};
+  }
+`;
+
+export const LogoText2 = styled(LogoText)`
+  color: #0ca4d3;
+  margin-left: ${({ mgLeft }) => mgLeft && mgLeft};
+  margin-bottom: ${({ mgBottom }) => mgBottom && mgBottom};
+  @media screen and (min-width: 1100px) {
+    margin-left: ${({ mediaLeft }) => mediaLeft && mediaLeft};
+  }
+`;
+
 export const Container = styled.div`
   background-image: linear-gradient(200deg, #0e3242, #222121);
   height: 100vh;
@@ -53,4 +75,27 @@ export const GoogleButton = styled(LoginButton)`
   background-color: #033342;
   margin-top: 10px;
 `;
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: ${({ Jcenter }) => Jcenter && Jcenter};
+  align-items: ${({ Acenter }) => Acenter && Acenter};
+  padding: ${({ LogoPadding }) => LogoPadding && LogoPadding};
+`;
+
+export const InputText = styled.input`
+  height: 3.5rem;
+  width: 20rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #0e4369;
+`;
+
 export default GlobalStyle;

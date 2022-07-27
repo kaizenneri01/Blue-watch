@@ -4,7 +4,8 @@ import Title from "./pages/title/Title";
 import GlobalStyle from "./GlobalStyles";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import Login from "./pages/login/Login";
+import SignIn from "./pages/signIn/SignIn";
+import SignUp from "./pages/signup/SignUp";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Title />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/signUp" element={<SignUp />} />
           </Routes>
         </Container>
       </BrowserRouter>
