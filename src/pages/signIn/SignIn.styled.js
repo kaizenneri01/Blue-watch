@@ -6,3 +6,16 @@ export const SignInContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const RememberLabel = styled.label`
+  font-weight: 500;
+  font-size: 12px;
+  color: #dfdfdf;
+  margin-left: 5px;
+`;
+
+export const Forgotpass = styled.p`
+  font-weight: 500;
+  font-size: 12px;
+  color: #dfdfdf;
+`;

@@ -25,16 +25,16 @@ const Title = () => {
         <TitleContainer>
           <LogoContainer>
             <LogoText
-              fsize="2rem"
+              fsize="3rem"
               size="5rem"
-              lineHeight="20px"
+              lineHeight="25px"
               medialineHeight="35px"
             >
               blue
             </LogoText>
             <LogoText2
-              mgLeft="1.5rem"
-              fsize="2rem"
+              mgLeft="2.1rem"
+              fsize="3rem"
               mgBottom="2rem"
               size="5rem"
               mediaLeft="3.5rem"
