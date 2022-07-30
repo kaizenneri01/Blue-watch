@@ -100,11 +100,13 @@ export const InputText = styled.input`
   border: none;
   background-color: #0e4369;
   &[type="text"],
+  &[type="email"],
   &[type="password"] {
     color: #dfdfdf;
     padding-left: 10px;
   }
   &[type="text"]:focus,
+  &[type="email"]:focus,
   &[type="password"]:focus {
     background-color: #0b6d83;
     outline: none;
@@ -114,6 +116,15 @@ export const InputText = styled.input`
     height: 4rem;
     width: 22rem;
     font-size: 1rem;
+  }
+`;
+
+export const InputPassword = styled(InputText)`
+  width: 15rem;
+  border-radius: 0;
+
+  @media screen and (min-width: 1500px) {
+    width: 19rem;
   }
 `;
 
@@ -136,6 +147,21 @@ export const IconBox = styled.div`
   @media screen and (min-width: 1500px) {
     height: 4rem;
     width: 4rem;
+  }
+`;
+
+export const ShowButton = styled.div`
+  height: 3.5rem;
+  width: 3rem;
+  background-color: #0e4369;
+  border-radius: 0 7px 7px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  @media screen and (min-width: 1500px) {
+    height: 4rem;
   }
 `;
 

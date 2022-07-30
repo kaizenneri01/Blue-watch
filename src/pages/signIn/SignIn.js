@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   IconBox,
   ImageContainer,
   InputContainer,
+  InputPassword,
   InputText,
   LoginButton,
   LogoContainer,
   LogoText,
   LogoText2,
+  ShowButton,
 } from "../../GlobalStyles";
 import { Forgotpass, RememberLabel, SignInContainer } from "./SignIn.styled";
-import { BiUserCircle } from "react-icons/bi";
+import { BiShowAlt, BiUserCircle } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
 
 const SignIn = () => {
+  const [showPass, setShowPass] = useState(false);
+
+  const showPassword = (e) => {
+    e.preventDefault();
+    setShowPass(!showPass);
+  };
   return (
     <>
       <ImageContainer>
@@ -43,7 +51,13 @@ const SignIn = () => {
               <IconBox>
                 <AiOutlineLock />
               </IconBox>
-              <InputText type="password" placeholder="Password.." />
+              <InputPassword
+                type={showPass ? "text" : "password"}
+                placeholder="Password.."
+              />
+              <ShowButton onClick={showPassword}>
+                <BiShowAlt />
+              </ShowButton>
             </InputContainer>
             <InputContainer justifyC="space-around">
               <InputContainer>
