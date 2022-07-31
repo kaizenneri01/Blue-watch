@@ -22,12 +22,10 @@ const SignUp = () => {
   const [showConfimPass, setShowConfirmPass] = useState(false);
 
   const showPassword = (e) => {
-    // e.preventDefault();
     setShowPass(!showPass);
   };
 
   const showConfirmPassword = (e) => {
-    // e.preventDefault();
     setShowConfirmPass(!showConfimPass);
   };
 
