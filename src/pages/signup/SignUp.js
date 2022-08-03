@@ -16,10 +16,17 @@ import {
   ShowButton,
 } from "../../GlobalStyles";
 import { SignInContainer } from ".././signIn/SignIn.styled";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../features/UserSlice";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
   const [showConfimPass, setShowConfirmPass] = useState(false);
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const showPassword = (e) => {
     setShowPass(!showPass);
@@ -27,6 +34,12 @@ const SignUp = () => {
 
   const showConfirmPassword = (e) => {
     setShowConfirmPass(!showConfimPass);
+  };
+
+  const submit = (e) => {
+    const payload = { fullname, email, password };
+    e.preventDefault();
+    dispatch(addUser(payload));
   };
 
   return (
@@ -38,53 +51,118 @@ const SignUp = () => {
             size="3rem"
             lineHeight="20px"
             medialineHeight="35px"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
           >
             blue
           </LogoText>
-          <LogoText2 fsize="2rem" size="3rem" mgLeft="3.5rem">
+          <LogoText2
+            fsize="2rem"
+            size="3rem"
+            mgLeft="3.5rem"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+          >
             watch
           </LogoText2>
         </LogoContainer>
         <SignInContainer>
           <Form>
             <InputContainer>
-              <IconBox>
+              <IconBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 }}
+              >
                 <BiUserCircle />
               </IconBox>
-              <InputText type="text" placeholder="Full name.." />
+              <InputText
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 }}
+                type="text"
+                placeholder="Full name.."
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
+              />
             </InputContainer>
             <InputContainer>
-              <IconBox>
+              <IconBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
                 <AiOutlineMail />
               </IconBox>
-              <InputText type="email" placeholder="Email address.." />
+              <InputText
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                type="email"
+                placeholder="Email address.."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </InputContainer>
             <InputContainer>
-              <IconBox>
+              <IconBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
                 <AiOutlineUnlock />
               </IconBox>
               <InputPassword
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type={showPass ? "text" : "password"}
                 placeholder="Password.."
               />
-              <ShowButton onClick={showPassword}>
+              <ShowButton
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                onClick={showPassword}
+              >
                 <BiShowAlt />
               </ShowButton>
             </InputContainer>
             <InputContainer>
-              <IconBox>
+              <IconBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
                 <AiOutlineLock />
               </IconBox>
               <InputPassword
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
                 type={showConfimPass ? "text" : "password"}
                 placeholder="Confirm Password.."
               />
-              <ShowButton onClick={showConfirmPassword}>
+              <ShowButton
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                onClick={showConfirmPassword}
+              >
                 <BiShowAlt />
               </ShowButton>
             </InputContainer>
             <InputContainer justifyC="center" margin="2rem 0 0 0 ">
-              <LoginButton type="submit" onSubmit={(e) => e.preventDefault()}>
+              <LoginButton
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, scale: { delay: 0 } }}
+                whileHover={{ scale: 1.07 }}
+                type="submit"
+                onClick={submit}
+              >
                 create account
               </LoginButton>
             </InputContainer>

@@ -29,6 +29,8 @@ const Title = () => {
               size="5rem"
               lineHeight="25px"
               medialineHeight="35px"
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
             >
               blue
             </LogoText>
@@ -38,16 +40,57 @@ const Title = () => {
               mgBottom="2rem"
               size="5rem"
               mediaLeft="3.5rem"
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
             >
               watch
             </LogoText2>
           </LogoContainer>
-          <SubLogoText>watch the movie that you want</SubLogoText>
-          <SubLogoTex2>anytime anywhere</SubLogoTex2>
-          <LoginButton onClick={() => navigate("/signIn")}>login</LoginButton>
-          <GoogleButton>login with google</GoogleButton>
-          <TitleText>- or -</TitleText>
-          <TitleText2 onClick={() => navigate("/signUp")}>
+          <SubLogoText
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            watch the movie that you want
+          </SubLogoText>
+          <SubLogoTex2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            anytime anywhere
+          </SubLogoTex2>
+          <LoginButton
+            onClick={() => navigate("/signIn")}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ scale: 1.07 }}
+            transition={{ delay: 0.2, scale: { delay: 0 } }}
+          >
+            login
+          </LoginButton>
+          <GoogleButton
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ scale: 1.07 }}
+            transition={{ delay: 0.3, scale: { delay: 0 } }}
+          >
+            login with google
+          </GoogleButton>
+          <TitleText
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            - or -
+          </TitleText>
+          <TitleText2
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            whileHover={{ scale: 1.07 }}
+            transition={{ delay: 0.5, scale: { delay: 0 } }}
+            onClick={() => navigate("/signUp")}
+          >
             create an account
           </TitleText2>
         </TitleContainer>

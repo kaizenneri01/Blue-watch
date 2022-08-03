@@ -32,34 +32,69 @@ const SignIn = () => {
             size="3rem"
             lineHeight="20px"
             medialineHeight="35px"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
           >
             blue
           </LogoText>
-          <LogoText2 fsize="2rem" size="3rem" mgLeft="3.5rem">
+          <LogoText2
+            fsize="2rem"
+            size="3rem"
+            mgLeft="3.5rem"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+          >
             watch
           </LogoText2>
         </LogoContainer>
         <SignInContainer>
           <Form>
             <InputContainer>
-              <IconBox>
+              <IconBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 }}
+              >
                 <BiUserCircle />
               </IconBox>
-              <InputText type="text" placeholder="Email address.." />
+              <InputText
+                type="text"
+                placeholder="Email address.."
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 }}
+              />
             </InputContainer>
             <InputContainer>
-              <IconBox>
+              <IconBox
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
                 <AiOutlineLock />
               </IconBox>
               <InputPassword
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
                 type={showPass ? "text" : "password"}
                 placeholder="Password.."
               />
-              <ShowButton onClick={showPassword}>
+              <ShowButton
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                onClick={showPassword}
+              >
                 <BiShowAlt />
               </ShowButton>
             </InputContainer>
-            <InputContainer justifyC="space-around">
+            <InputContainer
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              justifyC="space-around"
+            >
               <InputContainer>
                 <input type="checkbox" />
                 <RememberLabel>remember Password</RememberLabel>
@@ -67,7 +102,15 @@ const SignIn = () => {
               <Forgotpass>Forgot password</Forgotpass>
             </InputContainer>
             <InputContainer justifyC="center" margin="2rem 0 0 0 ">
-              <LoginButton type="submit">login</LoginButton>
+              <LoginButton
+                type="submit"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.07 }}
+                transition={{ delay: 0.3, scale: { delay: 0 } }}
+              >
+                login
+              </LoginButton>
             </InputContainer>
           </Form>
         </SignInContainer>

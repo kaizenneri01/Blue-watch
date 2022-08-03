@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -9,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-export const LogoText = styled.h1`
+export const LogoText = styled(motion.h1)`
   font-weight: ${({ fweight }) => (fweight ? fweight : "")};
   font-size: ${({ fsize }) => (fsize ? fsize : "")};
   line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "")};
@@ -53,7 +54,7 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const LoginButton = styled.button`
+export const LoginButton = styled(motion.button)`
   height: 3.5rem;
   width: 15rem;
   background: #0b6d83;
@@ -92,7 +93,7 @@ export const LogoContainer = styled.div`
   }
 `;
 
-export const InputText = styled.input`
+export const InputText = styled(motion.input)`
   height: 3.5rem;
   width: 18rem;
   margin-bottom: 1rem;
@@ -136,7 +137,7 @@ export const InputContainer = styled.div`
   margin: ${({ margin }) => margin && margin};
 `;
 
-export const IconBox = styled.div`
+export const IconBox = styled(motion.div)`
   background: #0ca4d3;
   height: 3.5rem;
   width: 3rem;
@@ -150,7 +151,7 @@ export const IconBox = styled.div`
   }
 `;
 
-export const ShowButton = styled.div`
+export const ShowButton = styled(motion.div)`
   height: 3.5rem;
   width: 3rem;
   background-color: #0e4369;

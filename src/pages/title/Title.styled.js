@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const TitleContainer = styled.div`
   display: flex;
@@ -8,7 +9,7 @@ export const TitleContainer = styled.div`
   height: 100%;
 `;
 
-export const SubLogoText = styled.h2`
+export const SubLogoText = styled(motion.h2)`
   font-weight: 400;
   font-size: 1rem;
   color: #dfdfdf;
@@ -23,7 +24,7 @@ export const SubLogoTex2 = styled(SubLogoText)`
   margin-bottom: 2.5rem;
 `;
 
-export const TitleText = styled.p`
+export const TitleText = styled(motion.p)`
   margin-top: 1rem;
   font-weight: 600;
   font-size: 10px;
