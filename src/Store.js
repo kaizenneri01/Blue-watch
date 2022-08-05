@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import visibilityReducer from "./features/VisibilitySlice";
+
 import UserReducer from "./features/UserSlice";
 
 // const rrfConfig = {
@@ -9,7 +9,6 @@ import UserReducer from "./features/UserSlice";
 
 export const store = configureStore({
   reducer: {
-    visible: visibilityReducer,
     user: UserReducer,
   },
   middleware: (getDefaultMiddleware) =>

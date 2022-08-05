@@ -15,14 +15,26 @@ import {
 import { Forgotpass, RememberLabel, SignInContainer } from "./SignIn.styled";
 import { BiShowAlt, BiUserCircle } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../features/UserSlice";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const showPassword = (e) => {
-    e.preventDefault();
+  const dispatch = useDispatch();
+
+  const showPassword = () => {
     setShowPass(!showPass);
   };
+
+  const SubmitLogin = (e) => {
+    e.preventDefault();
+    const payload = { email, password };
+    signIn(dispatch(payload));
+  };
+
   return (
     <>
       <ImageContainer>
@@ -63,6 +75,7 @@ const SignIn = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </InputContainer>
             <InputContainer>
@@ -79,6 +92,7 @@ const SignIn = () => {
                 transition={{ delay: 0.2 }}
                 type={showPass ? "text" : "password"}
                 placeholder="Password.."
+                onChange={(e) => setPassword(e.target.value)}
               />
               <ShowButton
                 initial={{ opacity: 0 }}
@@ -108,6 +122,7 @@ const SignIn = () => {
                 animate={{ opacity: 1 }}
                 whileHover={{ scale: 1.07 }}
                 transition={{ delay: 0.3, scale: { delay: 0 } }}
+                onClick={SubmitLogin}
               >
                 login
               </LoginButton>

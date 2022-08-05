@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 
-import { db } from "../config/FirebaseConfig";
+import { auth, db } from "../config/FirebaseConfig";
 
 const defaultValue = {
   fullName: "",
@@ -15,20 +19,36 @@ export const UserSlice = createSlice({
     value: defaultValue,
   },
   reducers: {
-    addUser: async (action) => {
+    addUser: async (state, action) => {
       try {
+        await createUserWithEmailAndPassword(
+          auth,
+          (state.email = action.payload.email),
+          (state.password = action.payload.password)
+        ).then();
         await addDoc(collection(db, "Users"), {
-          Email: action.payload.email,
-          FullName: action.payload.fullname,
-          Password: action.payload.password,
+          Email: (state.email = action.payload.email),
+          FullName: (state.fullName = action.payload.fullname),
+          Password: (state.password = action.payload.password),
         });
-      } catch (e) {
+      } catch {
+        console.log("error");
+      }
+    },
+    signIn: async (state, action) => {
+      try {
+        await signInWithEmailAndPassword(
+          auth,
+          (state.email = action.payload.email),
+          (state.password = action.payload.password)
+        );
+      } catch {
         console.log("error");
       }
     },
   },
 });
 
-export const { addUser } = UserSlice.actions;
+export const { addUser, signIn } = UserSlice.actions;
 
 export default UserSlice.reducer;

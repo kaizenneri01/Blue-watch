@@ -18,6 +18,7 @@ import {
 import { SignInContainer } from ".././signIn/SignIn.styled";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../features/UserSlice";
+import { SignUpText } from "./SignUp.styled";
 
 const SignUp = () => {
   const [showPass, setShowPass] = useState(false);
@@ -25,6 +26,8 @@ const SignUp = () => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [invalidPass, setInvalidPass] = useState("");
 
   const dispatch = useDispatch();
 
@@ -39,7 +42,12 @@ const SignUp = () => {
   const submit = (e) => {
     const payload = { fullname, email, password };
     e.preventDefault();
-    dispatch(addUser(payload));
+    if (password === confirmPassword) {
+      setInvalidPass("");
+      dispatch(addUser(payload));
+    } else {
+      setInvalidPass("password does not match");
+    }
   };
 
   return (
@@ -142,6 +150,7 @@ const SignUp = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 type={showConfimPass ? "text" : "password"}
                 placeholder="Confirm Password.."
               />
@@ -154,6 +163,7 @@ const SignUp = () => {
                 <BiShowAlt />
               </ShowButton>
             </InputContainer>
+            <SignUpText>{invalidPass}</SignUpText>
             <InputContainer justifyC="center" margin="2rem 0 0 0 ">
               <LoginButton
                 initial={{ opacity: 0 }}

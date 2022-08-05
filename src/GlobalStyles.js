@@ -131,7 +131,7 @@ export const InputPassword = styled(InputText)`
 
 export const InputContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ direction }) => direction && direction};
   justify-content: ${({ justifyC }) => justifyC && justifyC};
   align-items: ${({ align }) => align && align};
   margin: ${({ margin }) => margin && margin};
