@@ -57,8 +57,8 @@ const SignUp = () => {
           <LogoText
             fsize="2rem"
             size="3rem"
-            lineHeight="20px"
-            medialineHeight="35px"
+            lineheight="20px"
+            medialineheight="35px"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
           >
@@ -67,7 +67,7 @@ const SignUp = () => {
           <LogoText2
             fsize="2rem"
             size="3rem"
-            mgLeft="3.5rem"
+            mgleft="3.5rem"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
           >

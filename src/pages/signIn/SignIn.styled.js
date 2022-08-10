@@ -19,3 +19,10 @@ export const Forgotpass = styled.p`
   font-size: 12px;
   color: #dfdfdf;
 `;
+
+export const SignInText = styled.p`
+  color: tomato;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: 1rem;
+`;

@@ -12,27 +12,34 @@ import {
   LogoText2,
   ShowButton,
 } from "../../GlobalStyles";
-import { Forgotpass, RememberLabel, SignInContainer } from "./SignIn.styled";
+import {
+  Forgotpass,
+  RememberLabel,
+  SignInContainer,
+  SignInText,
+} from "./SignIn.styled";
 import { BiShowAlt, BiUserCircle } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
-import { useDispatch } from "react-redux";
-import { signIn } from "../../features/UserSlice";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/FirebaseConfig";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const dispatch = useDispatch();
+  const [invalid, setInvalid] = useState("");
 
   const showPassword = () => {
     setShowPass(!showPass);
   };
 
-  const SubmitLogin = (e) => {
+  const SubmitLogin = async (e) => {
     e.preventDefault();
-    const payload = { email, password };
-    signIn(dispatch(payload));
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch {
+      setInvalid("Invalid Input");
+    }
   };
 
   return (
@@ -42,8 +49,8 @@ const SignIn = () => {
           <LogoText
             fsize="2rem"
             size="3rem"
-            lineHeight="20px"
-            medialineHeight="35px"
+            lineheight="20px"
+            medialineheight="35px"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
           >
@@ -52,7 +59,7 @@ const SignIn = () => {
           <LogoText2
             fsize="2rem"
             size="3rem"
-            mgLeft="3.5rem"
+            mgleft="3.5rem"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
           >
@@ -115,7 +122,12 @@ const SignIn = () => {
               </InputContainer>
               <Forgotpass>Forgot password</Forgotpass>
             </InputContainer>
-            <InputContainer justifyC="center" margin="2rem 0 0 0 ">
+            <InputContainer
+              direction="column"
+              justifyC="center"
+              align="center"
+              margin="2rem 0 0 0 "
+            >
               <LoginButton
                 type="submit"
                 initial={{ opacity: 0 }}
@@ -126,6 +138,7 @@ const SignIn = () => {
               >
                 login
               </LoginButton>
+              <SignInText>{invalid}</SignInText>
             </InputContainer>
           </Form>
         </SignInContainer>

@@ -27,19 +27,19 @@ const Title = () => {
             <LogoText
               fsize="3rem"
               size="5rem"
-              lineHeight="25px"
-              medialineHeight="35px"
+              lineheight="25px"
+              medialineheight="35px"
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
             >
               blue
             </LogoText>
             <LogoText2
-              mgLeft="2.1rem"
+              mgleft="2.1rem"
               fsize="3rem"
-              mgBottom="2rem"
+              mgbottom="2rem"
               size="5rem"
-              mediaLeft="3.5rem"
+              medialeft="3.5rem"
               initial={{ x: 50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
             >

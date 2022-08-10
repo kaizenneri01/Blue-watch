@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-
 import UserReducer from "./features/UserSlice";
 
 // const rrfConfig = {

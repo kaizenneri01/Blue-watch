@@ -13,22 +13,22 @@ const GlobalStyle = createGlobalStyle`
 export const LogoText = styled(motion.h1)`
   font-weight: ${({ fweight }) => (fweight ? fweight : "")};
   font-size: ${({ fsize }) => (fsize ? fsize : "")};
-  line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "")};
+  line-height: ${({ lineheight }) => (lineheight ? lineheight : "")};
   color: #ffffff;
   text-transform: uppercase;
   @media screen and (min-width: 1500px) {
     font-size: ${({ size }) => size && size};
-    line-height: ${({ medialineHeight }) =>
-      medialineHeight ? medialineHeight : ""};
+    line-height: ${({ medialineheight }) =>
+      medialineheight ? medialineheight : ""};
   }
 `;
 
 export const LogoText2 = styled(LogoText)`
   color: #0ca4d3;
-  margin-left: ${({ mgLeft }) => mgLeft && mgLeft};
-  margin-bottom: ${({ mgBottom }) => mgBottom && mgBottom};
+  margin-left: ${({ mgleft }) => mgleft && mgleft};
+  margin-bottom: ${({ mgbottom }) => mgbottom && mgbottom};
   @media screen and (min-width: 1500px) {
-    margin-left: ${({ mediaLeft }) => mediaLeft && mediaLeft};
+    margin-left: ${({ medialeft }) => medialeft && medialeft};
   }
 `;
 
@@ -89,7 +89,7 @@ export const LogoContainer = styled.div`
   align-items: ${({ Acenter }) => Acenter && Acenter};
   padding: ${({ LogoPadding }) => LogoPadding && LogoPadding};
   @media screen and (min-width: 1500px) {
-    padding: ${({ MediaPadding }) => MediaPadding && MediaPadding};
+    padding: ${({ Mediapadding }) => Mediapadding && Mediapadding};
   }
 `;
 
