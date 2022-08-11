@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import SignIn from "./pages/signIn/SignIn";
 import SignUp from "./pages/signup/SignUp";
 import { IconContext } from "react-icons";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
           <Container>
             <Routes>
               <Route path="/" element={<Title />} />
-              <Route path="/SignIn" element={<SignIn />} />
+              <Route path="/signIn" element={<SignIn />} />
               <Route path="/signUp" element={<SignUp />} />
+              <Route path="/home" element={<Home />} />
             </Routes>
           </Container>
         </IconContext.Provider>

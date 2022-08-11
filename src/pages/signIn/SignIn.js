@@ -22,12 +22,15 @@ import { BiShowAlt, BiUserCircle } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../config/FirebaseConfig";
+import { useNavigate } from "react-router";
 
 const SignIn = () => {
   const [showPass, setShowPass] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [invalid, setInvalid] = useState("");
+
+  const navigate = useNavigate();
 
   const showPassword = () => {
     setShowPass(!showPass);
@@ -36,7 +39,10 @@ const SignIn = () => {
   const SubmitLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password).then((data) => {
+        navigate("/home");
+        console.log(data);
+      });
     } catch {
       setInvalid("Invalid Input");
     }
