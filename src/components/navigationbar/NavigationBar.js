@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { IoMdClose } from "react-icons/io";
-import { LogoContainer, LogoText, LogoText2 } from "../../GlobalStyles";
+import { LogoText, LogoText2 } from "../../GlobalStyles";
 import {
   ActiveMenu,
   MenuBtn,
@@ -14,8 +14,11 @@ import {
 } from "./NavigationBar.styled";
 import { motion } from "framer-motion";
 import { NavigationList } from "./NavigationList";
+import { useNavigate } from "react-router";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
+
   const [sideOn, setSideOn] = useState(false);
 
   const variant = {
@@ -24,7 +27,12 @@ const NavigationBar = () => {
   };
 
   const renderedList = NavigationList.map((item, index) => (
-    <MenuList initial={{ x: -100 }} animate={{ x: 0 }} key={index}>
+    <MenuList
+      initial={{ x: -100 }}
+      animate={{ x: 0 }}
+      key={index}
+      onClick={() => navigate(item.path)}
+    >
       {item.title}
     </MenuList>
   ));

@@ -1,11 +1,11 @@
 import React from "react";
-import NavigationBar from "../../components/navigationbar/NavigationBar";
 
 const Home = () => {
   return (
-    <>
-      <NavigationBar />
-    </>
+    <div style={{ backgroundColor: "white" }}>
+      {" "}
+      <h1>hello</h1>{" "}
+    </div>
   );
 };
 

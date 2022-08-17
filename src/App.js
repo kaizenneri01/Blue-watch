@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "./GlobalStyles";
+import { Container, LargeContainer } from "./GlobalStyles";
 import Title from "./pages/title/Title";
 import GlobalStyle from "./GlobalStyles";
 import { Route, Routes } from "react-router";
@@ -7,7 +7,12 @@ import { BrowserRouter } from "react-router-dom";
 import SignIn from "./pages/signIn/SignIn";
 import SignUp from "./pages/signup/SignUp";
 import { IconContext } from "react-icons";
+
+import HomeLayout from "./pages/Home/HomeLayout";
+import NotFound from "./pages/notfound/NotFound";
 import Home from "./pages/Home/Home";
+import Favorite from "./pages/favorite/Favorite";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
@@ -22,10 +27,14 @@ function App() {
         >
           <Container>
             <Routes>
-              <Route path="/" element={<Title />} />
+              <Route exact path="/title" element={<Title />} />
               <Route path="/signIn" element={<SignIn />} />
               <Route path="/signUp" element={<SignUp />} />
-              <Route path="/home" element={<Home />} />
+              <Route exact path="*" element={<NotFound />} />
+              <Route exact path="/" element={<HomeLayout />}>
+                <Route path="home" element={<Home />} />
+                <Route path="favorite" element={<Favorite />} />
+              </Route>
             </Routes>
           </Container>
         </IconContext.Provider>

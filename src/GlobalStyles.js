@@ -166,4 +166,10 @@ export const ShowButton = styled(motion.div)`
   }
 `;
 
+export const LargeContainer = styled(motion.div)`
+  @media screen and (min-width: 1024px) {
+    display: flex;
+  }
+`;
+
 export default GlobalStyle;
